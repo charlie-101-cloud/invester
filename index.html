@@ -92,18 +92,26 @@
   </section>
 
   <!-- Contact CTA -->
-  <section id="contact" class="section bg-light">
-    <div class="container">
-      <h2>Join Our Journey</h2>
-      <p>We're raising <strong>$250K</strong> to expand course offerings and marketing.</p>
-      <form id="investor-form">
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Email" required>
-        <textarea placeholder="Investment interest..."></textarea>
-        <button type="submit" class="cta-button">Submit Interest</button>
-      </form>
-    </div>
-  </section>
+  <!-- Replace the existing form with this -->
+<form id="investor-form" action="https://formsubmit.co/charlie.jerry101@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="New Investment Interest">
+    <input type="hidden" name="_template" value="table">
+    
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="tel" name="phone" placeholder="Phone">
+    <select name="investment_range" required>
+      <option value="" disabled selected>Investment Amount</option>
+      <option value="5k-25k">5K - 25K</option>
+      <option value="25k-100k">25K - 100K</option>
+      <option value="100k+">100K+</option>
+    </select>
+    <textarea name="message" placeholder="Your investment goals..."></textarea>
+    <button type="submit" class="cta-button">Submit Interest</button>
+    
+    <!-- FormSubmit.co redirect after submission -->
+    <input type="hidden" name="_next" value="https://coursehive.com/thank-you.html">
+  </form>
 
   <!-- Footer -->
   <footer>
