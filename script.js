@@ -1,50 +1,48 @@
-// Smooth scrolling for navigation
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
+// Form Validation & Submission Feedback
+document.getElementById('investor-form').addEventListener('submit', function(e) {
+  const form = e.target;
+  const phoneInput = form.querySelector('input[name="phone"]');
   
-  // Form submission (simulated)
-  document.getElementById('investor-form').addEventListener('submit', function(e) {
+  // Basic phone validation (if provided)
+  if (phoneInput.value && !/^[\d\s\-()+]{10,}$/.test(phoneInput.value)) {
+    alert('Please enter a valid phone number (at least 10 digits)');
     e.preventDefault();
-    alert('Thank you for your interest! We\'ll contact you shortly.');
-    this.reset();
-  });
+    return;
+  }
   
-  // Simple animation on scroll
-  const animateOnScroll = () => {
-    const sections = document.querySelectorAll('.section');
-    
-    sections.forEach(section => {
-      const sectionTop = section.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-      
-      if (sectionTop < windowHeight * 0.75) {
-        section.style.opacity = '1';
-        section.style.transform = 'translateY(0)';
-      }
-    });
-  };
+  // Show loading state
+  const submitBtn = form.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
   
-  // Set initial state
-  document.querySelectorAll('.section').forEach(section => {
-    section.style.opacity = '0';
-    section.style.transform = 'translateY(20px)';
-    section.style.transition = 'all 0.6s ease';
-  });
-  
-  // Trigger on load and scroll
-  window.addEventListener('load', animateOnScroll);
-  window.addEventListener('scroll', animateOnScroll);
+  // For demo purposes - remove in production
+  console.log('Form data:', new FormData(form));
+});
 
-  document.getElementById('investor-form').addEventListener('submit', function(e) {
-    const phoneInput = this.querySelector('input[name="phone"]');
-    if (phoneInput.value && !/^\d{10,}$/.test(phoneInput.value)) {
-      alert('Please enter a valid phone number');
-      e.preventDefault();
+// Smooth scrolling for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelector(this.getAttribute('href')).scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+// Animation on scroll
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.section').forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < window.innerHeight * 0.75) {
+      section.style.opacity = '1';
+      section.style.transform = 'translateY(0)';
     }
   });
+});
+
+// Initialize animations
+document.querySelectorAll('.section').forEach(section => {
+  section.style.opacity = '0';
+  section.style.transform = 'translateY(20px)';
+  section.style.transition = 'all 0.6s ease';
+});
