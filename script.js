@@ -40,3 +40,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   // Trigger on load and scroll
   window.addEventListener('load', animateOnScroll);
   window.addEventListener('scroll', animateOnScroll);
+
+  document.getElementById('investor-form').addEventListener('submit', function(e) {
+    const phoneInput = this.querySelector('input[name="phone"]');
+    if (phoneInput.value && !/^\d{10,}$/.test(phoneInput.value)) {
+      alert('Please enter a valid phone number');
+      e.preventDefault();
+    }
+  });
