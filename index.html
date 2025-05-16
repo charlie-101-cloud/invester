@@ -33,94 +33,56 @@
     </div>
   </header>
 
-  <!-- About Section -->
-  <section id="about" class="section">
+  <!-- ... (Keep other sections from previous code) ... -->
+
+  <!-- Updated Contact Form -->
+  <section id="contact" class="section bg-light">
     <div class="container">
-      <h2>Why COURSEHIVE?</h2>
-      <div class="card">
-        <div class="feature">
-          <i class="fas fa-chalkboard-teacher"></i>
-          <h3>Real Professionals</h3>
-          <p>Industry experts teach practical, job-ready skills.</p>
+      <h2>Investment Interest</h2>
+      <p>We're raising <strong>$250K</strong> to expand our course offerings.</p>
+      
+      <form id="investor-form" action="https://formsubmit.co/your-email@coursehive.com" method="POST">
+        <!-- FormSubmit Configuration -->
+        <input type="hidden" name="_subject" value="New COURSEHIVE Investment Inquiry">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://yourdomain.com/thank-you.html">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <!-- Form Fields -->
+        <div class="form-group">
+          <input type="text" name="name" placeholder="Full Name" required>
         </div>
-        <div class="feature">
-          <i class="fas fa-certificate"></i>
-          <h3>Certified Courses</h3>
-          <p>Accredited programs with recognized certifications.</p>
+        <div class="form-group">
+          <input type="email" name="email" placeholder="Email Address" required>
         </div>
-        <div class="feature">
-          <i class="fas fa-chart-line"></i>
-          <h3>Proven Model</h3>
-          <p>Subscription + one-time purchase revenue streams.</p>
+        <div class="form-group">
+          <input type="tel" name="phone" placeholder="Phone Number (optional)">
         </div>
-      </div>
+        <div class="form-group">
+          <select name="investment_range" required>
+            <option value="" disabled selected>Investment Range</option>
+            <option value="5k-25k">$5,000 - $25,000</option>
+            <option value="25k-100k">$25,000 - $100,000</option>
+            <option value="100k+">$100,000+</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <textarea name="message" placeholder="Tell us about your investment goals..."></textarea>
+        </div>
+        <button type="submit" class="cta-button">Submit Interest</button>
+        
+        <!-- Legal Disclaimer -->
+        <p class="legal-note">
+          This is not an offer to sell securities. All investments are subject to terms.
+        </p>
+      </form>
     </div>
   </section>
-
-  <!-- Courses Preview -->
-  <section id="courses" class="section bg-light">
-    <div class="container">
-      <h2>Featured Courses</h2>
-      <div class="course-grid">
-        <div class="course-card">
-          <h3>Digital Marketing</h3>
-          <p>Taught by CMOs with 10+ years of experience.</p>
-        </div>
-        <div class="course-card">
-          <h3>Data Science</h3>
-          <p>Hands-on training with real datasets.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Market Opportunity -->
-  <section id="market" class="section">
-    <div class="container">
-      <h2>Market Potential</h2>
-      <div class="stats">
-        <div class="stat">
-          <h3>$320B</h3>
-          <p>Global e-learning market (2025)</p>
-        </div>
-        <div class="stat">
-          <h3>90%</h3>
-          <p>Companies investing in upskilling</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact CTA -->
-  <!-- Replace the existing form with this -->
-<form id="investor-form" action="https://formsubmit.co/charlie.jerry101@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="New Investment Interest">
-    <input type="hidden" name="_template" value="table">
-    
-    <input type="text" name="name" placeholder="Your Name" required>
-    <input type="email" name="email" placeholder="Email" required>
-    <input type="tel" name="phone" placeholder="Phone">
-    <select name="investment_range" required>
-      <option value="" disabled selected>Investment Amount</option>
-      <option value="5k-25k">5K - 25K</option>
-      <option value="25k-100k">25K - 100K</option>
-      <option value="100k+">100K+</option>
-    </select>
-    <textarea name="message" placeholder="Your investment goals..."></textarea>
-    <button type="submit" class="cta-button">Submit Interest</button>
-    
-    <!-- FormSubmit.co redirect after submission -->
-    <input type="hidden" name="_next" value="https://coursehive.com/thank-you.html">
-  </form>
 
   <!-- Footer -->
   <footer>
     <div class="container">
       <p>© 2024 COURSEHIVE. All rights reserved.</p>
-      <div class="social-links">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-      </div>
     </div>
   </footer>
 
